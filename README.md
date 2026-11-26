@@ -14,3 +14,9 @@ Plataforma SaaS web desarrollada con **Next.js (App Router, TypeScript y Tailwin
 ```bash
 npm install
 npm run dev
+
+## Despliegue en Amazon S3
+
+1. Se compila la aplicación estática con `npm run build`, generando el directorio `out/`.
+2. El workflow en `.github/workflows/deploy.yml` ejecuta `aws s3 sync ./out s3://$AWS_S3_BUCKET --delete` al hacer push en `main`.
+3. Se requieren los secretos `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN` y `AWS_S3_BUCKET` configurados en GitHub Actions.
