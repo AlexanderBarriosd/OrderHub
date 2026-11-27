@@ -6,7 +6,7 @@
 
 ## Dominio Público de la Aplicación
 
-* **URL de Producción:** `http://<tu-bucket-s3>.s3-website-us-east-1.amazonaws.com` *(se actualizará con el dominio personalizado en el despliegue final)*
+* **URL de Producción:** `http://orderhub-alexbarrios-2026.s3-website-us-east-1.amazonaws.com/` *(se actualizará con el dominio personalizado en el despliegue final)*
 * **Código de Acceso Demo:** `ORDER2026`
 
 ---
@@ -24,6 +24,16 @@
 * **Interfaz Editorial Monocromática:** Diseño minimalista en blanco y negro (`#FAFAFA` / `#111111`) de alto contraste.
 
 ---
+## Evidencia de Funcionamiento
+
+### 1. Control de Acceso Privado (`Access Gate`)
+![Control de Acceso OrderHub](docs/screenshots/01-access-gate.png)
+
+### 2. Panel Operativo, Catálogo Rápido y Gestión de Pedidos
+![Dashboard y Catálogo OrderHub](docs/screenshots/02-dashboard-catalog.png)
+
+### 3. Despliegue Activo en AWS S3
+![Despliegue en Producción AWS S3](docs/screenshots/03-aws-deployment.png)
 
 ## Flujo de la Aplicación y Estructura del Proyecto
 
