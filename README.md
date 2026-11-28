@@ -10,6 +10,18 @@
 * **Código de Acceso Demo:** `ORDER2026`
 
 ---
+## Arquitectura de Componentes, Estáticos y Archivos (`app` y `next.config`)
+
+- **Componente principal de la aplicación:** Está en `app/page.tsx`. Ahí vive la lógica y la vista principal de OrderHub (el control de acceso inicial, el catálogo rápido, el dashboard con métricas y la gestión/filtrado de pedidos).
+- **Estructura base HTML y tipografía:** Está en `app/layout.tsx`, donde se define el esqueleto HTML raíz (`<html>` y `<body>`), los metadatos y las fuentes tipográficas compartidas por las páginas.
+- **Carpeta de archivos estáticos:** Está en `public/`. Todo lo que pongas ahí se sirve en la raíz pública (por ejemplo, `public/logo.png` se consulta como `/logo.png`), y al compilar con `output: "export"` Next.js genera los archivos estáticos finales en `./out`.
+- **Cómo se manejan CSS, JS y HTML:**
+  - **CSS:** Los estilos globales y la configuración de Tailwind CSS están en `app/globals.css` (y en el build estático se empaquetan como archivos `.css` en `./out`).
+  - **JS / TypeScript:** El código de componentes React y lógica de cliente está en `.tsx`/`.ts` dentro de `app/`; al hacer `npm run build`, Next.js lo compila y empaqueta en bundles JavaScript (`.js`) dentro de `./out`.
+  - **HTML:** En Next.js no escribes archivos `.html` a mano para cada vista; se generan a partir de `app/layout.tsx` y `app/page.tsx`, y al exportar de forma estática quedan como archivos `.html` listos en `./out`.
+- **Archivo `next.config.ts`:** Configura el comportamiento del build de Next.js. En este proyecto define `output: "export"` para generar un sitio estático puro compatible con el hosting estático de **AWS S3**.
+
+---
 
 ## Características Principales
 
