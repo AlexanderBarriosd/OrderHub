@@ -58,3 +58,35 @@ orderhub/
 ├── next.config.ts              # Configuración de exportación estática (output: "export")
 ├── package.json                # Dependencias y scripts de desarrollo/compilación
 └── README.md                   # Documentación técnica del proyecto
+
+---
+
+## Getting Started
+
+### Requisitos Previos
+- **Node.js** (v20 o superior) y **npm**
+- **Git**
+
+### Instalación y Ejecución Local
+1. Clona el repositorio e ingresa a la carpeta del proyecto:
+   ```bash
+   git clone [https://github.com/](https://github.com/)AlexanderBarriosd/OrderHub.git
+   cd OrderHub
+
+   ---
+
+## Compilación (`build`) y Despliegue (`deploy`)
+
+### Compilación Estática (`build`)
+1. Asegúrate de tener las dependencias instaladas:
+   ```bash
+   npm install
+   ### Despliegue en Producción (`deploy`)
+
+2. **Automático con GitHub Actions:** Cada `push` a la rama `main` ejecuta `.github/workflows/deploy.yml`, corre `npm run build` y sincroniza `./out` con el bucket de AWS S3:
+   ```bash
+   aws s3 sync ./out s3://${{ secrets.AWS_S3_BUCKET }} --delete
+
+3. Manual con AWS CLI: Con tus credenciales de AWS configuradas en local, compila y sube ./out directamente a tu bucket:
+npm run build
+aws s3 sync ./out s3://orderhub-alexbarrios-2026 --delete
